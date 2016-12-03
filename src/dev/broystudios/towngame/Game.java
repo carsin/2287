@@ -2,12 +2,13 @@ package dev.broystudios.towngame;
 
 import java.util.Random;
 
-import dev.broystudios.towngame.events.Event;
+import dev.broystudios.towngame.Time;
 import dev.broystudios.towngame.graphics.Display;
 
 public class Game implements Runnable {
 	
-	Random rand = new Random();
+	Random rand;
+	Time time;
 
 	private String title;
 	private int width, height;
@@ -24,20 +25,8 @@ public class Game implements Runnable {
 		
 	}
 	
-	public void generateEvent() {
-		for (int i = 0; i < Event.events.length; i++) {
-			if (Event.events[i] != null) {
-				if ((int) rand.nextInt(Event.events[i].getFrequency() * 100) == 0) {
-					Event.events[i].runEvent();
-					break;
-				}
-			}
-			break;
-		}
-	}
-	
 	public void tick() {
-		generateEvent();
+		time.tick();
 	}
 
 	public void run() {
@@ -74,7 +63,8 @@ public class Game implements Runnable {
 	
 	public void init() {
 		display = new Display(width, height, title);
-		
+		time = new Time();
+		rand = new Random();
 	}
 	
 	public synchronized void start() {
