@@ -9,6 +9,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import dev.broystudios.towngame.InstanceHandler;
+import dev.broystudios.towngame.scene.Scene;
 
 public class Display {
 
@@ -57,8 +58,7 @@ public class Display {
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
-		g.setColor(Color.WHITE);
-		g.drawString(InstanceHandler.getTime().getTimeAsString(), 20, 30);
+		Scene.getCurrentScene().render(g);
 		
 		b.show();
 		g.dispose();

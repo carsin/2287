@@ -3,11 +3,16 @@ package dev.broystudios.towngame;
 import java.util.Random;
 
 import dev.broystudios.towngame.graphics.Display;
+import dev.broystudios.towngame.resources.Resources;
+import dev.broystudios.towngame.scene.GameScene;
+import dev.broystudios.towngame.scene.Scene;
 
 public class Game implements Runnable {
 	
-	Random rand;
-	Time time;
+	private Scene gameScene;
+	
+	private Random rand;
+	private Time time;
 
 	private String title;
 	private int width, height;
@@ -26,6 +31,7 @@ public class Game implements Runnable {
 	
 	public void tick() {
 		time.tick();
+		Scene.getCurrentScene().tick();
 	}
 
 	public void run() {
@@ -55,6 +61,7 @@ public class Game implements Runnable {
 			if (timer >= 1000000000) {
 				ticks = 0;
 				timer = 0;
+				
 			}
 		}
 		stop();
@@ -66,6 +73,8 @@ public class Game implements Runnable {
 		display = new Display(width, height, title);
 		time = new Time();
 		rand = new Random();
+		gameScene = new GameScene();
+		Scene.setScene(gameScene);
 	}
 	
 	public synchronized void start() {
