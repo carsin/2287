@@ -1,12 +1,13 @@
 package dev.broystudios.towngame;
 
 public class Time {
+	
 
 	private int minute, hour, day, dayCount, month, year = 2287;
 	private int[] daysOfMonth = new int[12];
 	public static final int JAN = 0, FEB = 1, MAR = 2, APR = 3, MAY = 4, JUN = 5, JUL = 6, AUG = 7, SEP = 8, OCT = 9,
 			NOV = 10, DEC = 11;
-	private final int timeStep = 3600;
+	private final int timeStep = 5;
 
 	public Time() {
 		setMonths();
@@ -26,7 +27,7 @@ public class Time {
 		daysOfMonth[NOV] = 30;
 		daysOfMonth[DEC] = 31;
 	}
-
+	
 	public void tick() {
 		advanceTime();
 		printTime();
@@ -47,12 +48,22 @@ public class Time {
 			if (day >= daysOfMonth[month]) {
 				month++;
 				day = 0;
+				if (month == FEB && year % 4 == 0) {
+					daysOfMonth[FEB] = 29;
+				} else {
+					daysOfMonth[FEB] = 28;
+				}
+			
 				if (month >= 12) {
+					
 					month -= 12;
 					year++;
+					
 				}
 			}
 		}
+		
+		
 	}
 
 	public void printTime() {
