@@ -2,7 +2,6 @@ package dev.broystudios.towngame;
 
 import java.util.Random;
 
-import dev.broystudios.towngame.Time;
 import dev.broystudios.towngame.graphics.Display;
 
 public class Game implements Runnable {
