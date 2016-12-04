@@ -2,13 +2,15 @@ package dev.broystudios.towngame;
 
 public class Time {
 
-	private int minute, hour, day, dayCount, month, year = 2287;
+	private int minute, hour, day, dayCount, month, year;
 	private int[] daysOfMonth = new int[12];
 	public static final int JAN = 0, FEB = 1, MAR = 2, APR = 3, MAY = 4, JUN = 5, JUL = 6, AUG = 7, SEP = 8, OCT = 9,
 			NOV = 10, DEC = 11;
-	private final int timeStep = 5;
+	private final int timeStep = 1;
 
 	public Time() {
+		hour = 12;
+		year = 2287;
 		setMonths();
 	}
 
@@ -28,11 +30,10 @@ public class Time {
 	}
 
 	public void tick() {
-		advanceTime();
-		System.out.println(getTime());;
+		increment();
 	}
 
-	public void advanceTime() {
+	public void increment() {
 		minute += timeStep;
 		while (minute >= 60) {
 			if (minute >= 60) {
@@ -55,7 +56,7 @@ public class Time {
 		}
 	}
 
-	public String getTime() {
+	public String getTimeAsString() {
 		String newMinute = Integer.toString(minute), newHour = Integer.toString(hour);
 		String indicator = "AM";
 		if (minute < 10) {
