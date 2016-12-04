@@ -31,7 +31,7 @@ public class Game implements Runnable {
 	public void run() {
 		init();
 		
-		int tps = 1;
+		int tps = 5;
 		double timePerTick = 1000000000 / tps;
 		double delta = 0;
 		long now;
@@ -47,6 +47,7 @@ public class Game implements Runnable {
 			
 			if (delta >= 1) {
 				tick();
+				display.render();
 				ticks++;
 				delta--;
 			}
@@ -61,6 +62,7 @@ public class Game implements Runnable {
 	}
 	
 	public void init() {
+		InstanceHandler.init(this);
 		display = new Display(width, height, title);
 		time = new Time();
 		rand = new Random();
@@ -80,6 +82,10 @@ public class Game implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public Time getTime() {
+		return time;
 	}
 	
 }
