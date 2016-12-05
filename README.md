@@ -1,2 +1,2 @@
 # 2287
-An adventure game where try to create a society in a world in shambles.
+An adventure where a visionary to attempts to recreate society in a world that has long since forgotten them...
