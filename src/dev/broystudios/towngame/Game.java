@@ -3,6 +3,7 @@ package dev.broystudios.towngame;
 import java.util.Random;
 
 import dev.broystudios.towngame.building.Hut;
+import dev.broystudios.towngame.events.Citizen;
 import dev.broystudios.towngame.events.Event;
 import dev.broystudios.towngame.graphics.Display;
 import dev.broystudios.towngame.resources.Resource;
@@ -35,8 +36,8 @@ public class Game implements Runnable {
 
 	public void generateEvent() {
 		for (int i = 0; i < Event.events.length; i++) {
-			if (Event.events[i] != null) {
-				if ((int) rand.nextInt(Event.events[i].getFrequency() * 10) == 0) {
+			if (Event.events[i] != null && Event.events[i].isUnlocked()) {
+				if ((int) rand.nextInt(Event.events[i].getFrequency() * 1) == 0) {
 					Event.events[i].runEvent();
 					break;
 				}
@@ -85,6 +86,7 @@ public class Game implements Runnable {
 		rand = new Random();
 		hut = new Hut();
 		
+		Event.citizen.unlockEvent();
 		Resource.editResource(Resource.WOOD, 10, true);
 		hut.buildBuilding();
 	}

@@ -6,9 +6,6 @@ public abstract class ResidentialBuilding extends Building {
 
 	protected int maxResidents;
 
-	public static int townCurrentResidents;
-	public static int townMaxResidents;
-
 	public ResidentialBuilding(int buildingCost, int buildingCount, boolean unlocked, int maxResidents, Resource resourceType) {
 		super(buildingCost, buildingCount, unlocked, resourceType);
 

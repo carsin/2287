@@ -1,6 +1,10 @@
 package dev.broystudios.towngame.building;
 
+<<<<<<< HEAD
 import dev.broystudios.towngame.InstanceHandler;
+=======
+import dev.broystudios.towngame.GameStats;
+>>>>>>> origin/master
 import dev.broystudios.towngame.resources.Resource;
 
 public class Hut extends ResidentialBuilding {
@@ -12,7 +16,7 @@ public class Hut extends ResidentialBuilding {
 	public void buildBuilding() {
 		if (unlocked) {
 			Resource.editResource(Resource.WOOD, buildingCost, false);
-			ResidentialBuilding.townMaxResidents += 2;
+			GameStats.townMaxResidents += 2;
 			buildingCount++;
 			buildingCost += 10;
 			InstanceHandler.getScreen().println("you build a hut");
