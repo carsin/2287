@@ -8,9 +8,6 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-import dev.broystudios.towngame.InstanceHandler;
-import dev.broystudios.towngame.scene.Scene;
-
 public class Display {
 
 	private JFrame f;
@@ -22,6 +19,7 @@ public class Display {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		
 		
 		generateFrame();
 		
@@ -58,7 +56,6 @@ public class Display {
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
-		Scene.getCurrentScene().render(g);
 		
 		b.show();
 		g.dispose();
