@@ -3,7 +3,6 @@ package dev.broystudios.towngame;
 import java.util.Random;
 
 import dev.broystudios.towngame.building.Hut;
-import dev.broystudios.towngame.events.Citizen;
 import dev.broystudios.towngame.events.Event;
 import dev.broystudios.towngame.graphics.Display;
 import dev.broystudios.towngame.resources.Resource;

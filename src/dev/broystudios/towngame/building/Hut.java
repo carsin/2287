@@ -1,10 +1,7 @@
 package dev.broystudios.towngame.building;
 
-<<<<<<< HEAD
 import dev.broystudios.towngame.InstanceHandler;
-=======
 import dev.broystudios.towngame.GameStats;
->>>>>>> origin/master
 import dev.broystudios.towngame.resources.Resource;
 
 public class Hut extends ResidentialBuilding {
