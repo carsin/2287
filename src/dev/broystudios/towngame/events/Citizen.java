@@ -16,6 +16,7 @@ public class Citizen extends Event {
 		if (GameStats.townMaxResidents == GameStats.townCurrentResidents) {
 			System.out.println("town full");
 		} else {
+			System.out.println("a wanderer settles in your town " + GameStats.townCurrentResidents + "/" + GameStats.townMaxResidents);
 			GameStats.townCurrentResidents++;
 		}
 			
