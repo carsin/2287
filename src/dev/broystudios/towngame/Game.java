@@ -109,5 +109,9 @@ public class Game implements Runnable {
 	public Time getTime() {
 		return time;
 	}
+	
+	public Display getDisplay() {
+		return display;
+	}
 
 }

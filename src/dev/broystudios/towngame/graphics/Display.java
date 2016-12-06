@@ -8,19 +8,22 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import dev.broystudios.towngame.graphics.ui.Screen;
+
 public class Display {
 
 	private JFrame f;
 	private Canvas c;
 	private int width, height;
 	private String title;
+	private Screen screen;
 	
 	public Display(int width, int height, String title) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		
-		
+		screen = new Screen();
 		generateFrame();
 		
 	}
@@ -56,10 +59,23 @@ public class Display {
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
+		screen.render(g);
 		
 		b.show();
 		g.dispose();
 		
+	}
+	
+	public Screen getScreen() {
+		return screen;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 	
 }

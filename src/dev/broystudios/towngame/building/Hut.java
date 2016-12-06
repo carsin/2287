@@ -1,5 +1,6 @@
 package dev.broystudios.towngame.building;
 
+import dev.broystudios.towngame.InstanceHandler;
 import dev.broystudios.towngame.resources.Resource;
 
 public class Hut extends ResidentialBuilding {
@@ -14,9 +15,9 @@ public class Hut extends ResidentialBuilding {
 			ResidentialBuilding.townMaxResidents += 2;
 			buildingCount++;
 			buildingCost += 10;
-			System.out.println("you build a hut");
+			InstanceHandler.getScreen().println("you build a hut");
 		} else {
-			System.out.println("error not unlocked");
+			InstanceHandler.getScreen().println("error not unlocked");
 		}
 	}
 

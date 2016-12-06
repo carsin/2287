@@ -1,5 +1,7 @@
 package dev.broystudios.towngame.events;
 
+import dev.broystudios.towngame.InstanceHandler;
+
 public class Trader extends Event {
 
 	public Trader(int id, int frequency) {
@@ -7,7 +9,7 @@ public class Trader extends Event {
 	}
 
 	public void runEvent() {
-		System.out.println("A trader comes through town");
+		InstanceHandler.getScreen().println("A trader comes through town");
 	}
 
 }

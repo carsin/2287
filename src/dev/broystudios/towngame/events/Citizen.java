@@ -2,6 +2,7 @@ package dev.broystudios.towngame.events;
 
 import java.util.Random;
 
+import dev.broystudios.towngame.InstanceHandler;
 import dev.broystudios.towngame.building.ResidentialBuilding;
 
 public class Citizen extends Event {
@@ -20,9 +21,9 @@ public class Citizen extends Event {
 		} else {
 			ResidentialBuilding.townCurrentResidents += movingInAmount;
 			if (movingInAmount >= 2) {
-				System.out.println(movingInAmount + " wanderers take up in your town");
+				InstanceHandler.getScreen().println(movingInAmount + " wanderers take up in your town");
 			} else {
-				System.out.println("a lone wanderer settles in your town");
+				InstanceHandler.getScreen().println("a lone wanderer settles in your town");
 			}
 		}
 	}
