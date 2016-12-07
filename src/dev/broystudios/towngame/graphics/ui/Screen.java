@@ -23,8 +23,6 @@ public class Screen {
 
 		}
 
-		println("hello");
-
 	}
 
 	public void print(String text) {

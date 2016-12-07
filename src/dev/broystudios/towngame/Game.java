@@ -48,8 +48,11 @@ public class Game implements Runnable {
 		init();
 
 		int tps = 1;
+		int fps = 20;
+		double timePerFrame = 1000000000 / fps;
 		double timePerTick = 1000000000 / tps;
-		double delta = 0;
+		double deltaFrame = 0;
+		double deltaTick = 0;
 		long now;
 		long lastTimer = System.nanoTime();
 		long timer = 0;
@@ -57,15 +60,20 @@ public class Game implements Runnable {
 
 		while (running) {
 			now = System.nanoTime();
-			delta += (now - lastTimer) / timePerTick;
+			deltaTick += (now - lastTimer) / timePerTick;
+			deltaFrame += (now - lastTimer) / timePerFrame;
 			timer += now - lastTimer;
 			lastTimer = now;
 
-			if (delta >= 1) {
+			if (deltaTick >= 1) {
 				tick();
-				display.render();
 				ticks++;
-				delta--;
+				deltaTick--;
+			}
+			
+			if(deltaFrame >= 1) {
+				display.render();
+				deltaFrame--;
 			}
 
 			if (timer >= 1000000000) {
