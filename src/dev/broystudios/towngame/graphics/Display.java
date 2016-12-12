@@ -8,7 +8,10 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import dev.broystudios.towngame.InstanceHandler;
+import dev.broystudios.towngame.graphics.ui.ClickListener;
 import dev.broystudios.towngame.graphics.ui.Screen;
+import dev.broystudios.towngame.graphics.ui.UIButton;
 
 public class Display {
 
@@ -26,6 +29,14 @@ public class Display {
 		screen = new Screen();
 		generateFrame();
 		
+		//Carson, follow this format for a button
+		InstanceHandler.getUIHandler().add(new UIButton(width - 120, height - 40, 100, 20, Color.RED, "TEST", new ClickListener() {
+			@Override
+			public void onClick() {
+				screen.println("click dat button ooh yeah");
+			}
+		}));
+		
 	}
 	
 	public void generateFrame() {
@@ -36,12 +47,19 @@ public class Display {
 		c.setMaximumSize(new Dimension(width, height));
 		c.setMinimumSize(new Dimension(width, height));
 		c.setPreferredSize(new Dimension(width, height));
+		c.addMouseListener(InstanceHandler.getMouseHandler());
+		c.addMouseMotionListener(InstanceHandler.getMouseHandler());
+		c.setFocusable(false);
 		
 		f.setTitle(title);
 		f.setSize(width, height);
+		f.add(c);
+		f.addMouseListener(InstanceHandler.getMouseHandler());
+		f.addMouseMotionListener(InstanceHandler.getMouseHandler());
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setLocationRelativeTo(null);
-		f.add(c);
+		f.setFocusable(true);
+		f.requestFocus();
 		f.pack();
 		f.setVisible(true);
 		
@@ -60,6 +78,8 @@ public class Display {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
 		screen.render(g);
+		InstanceHandler.getUIHandler().tick();
+		InstanceHandler.getUIHandler().render(g);
 		
 		b.show();
 		g.dispose();
