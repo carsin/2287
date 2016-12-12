@@ -5,6 +5,8 @@ import java.util.Random;
 import dev.broystudios.towngame.building.Hut;
 import dev.broystudios.towngame.events.Event;
 import dev.broystudios.towngame.graphics.Display;
+import dev.broystudios.towngame.graphics.ui.UIHandler;
+import dev.broystudios.towngame.input.MouseHandler;
 import dev.broystudios.towngame.resources.Resource;
 
 public class Game implements Runnable {
@@ -12,7 +14,8 @@ public class Game implements Runnable {
 	private Random rand;
 	private Time time;
 	private Hut hut;
-
+	private MouseHandler mouseHandler;
+	private UIHandler uiHandler;
 	private String title;
 	private int width, height;
 	private Thread thread;
@@ -28,7 +31,6 @@ public class Game implements Runnable {
 	}
 
 	public void tick() {
-		time.tick();
 		generateEvent();
 		// Scene.getCurrentScene().tick();
 	}
@@ -88,10 +90,13 @@ public class Game implements Runnable {
 
 	public void init() {
 		InstanceHandler.init(this);
+		uiHandler = new UIHandler();
+		mouseHandler = new MouseHandler();
 		display = new Display(width, height, title);
 		time = new Time();
 		rand = new Random();
 		hut = new Hut();
+		
 		
 		Event.citizen.unlockEvent();
 		Resource.editResource(Resource.WOOD, 10, true);
@@ -121,6 +126,14 @@ public class Game implements Runnable {
 	
 	public Display getDisplay() {
 		return display;
+	}
+	
+	public MouseHandler getMouseHandler() {
+		return mouseHandler;
+	}
+	
+	public UIHandler getUIHandler() {
+		return uiHandler;
 	}
 
 }
