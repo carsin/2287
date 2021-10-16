@@ -1,11 +1,13 @@
+package dev;
+
 import java.util.Random;
 
-import dev.broystudios.towngame.building.Hut;
-import dev.broystudios.towngame.events.Event;
-import dev.broystudios.towngame.graphics.Display;
-import dev.broystudios.towngame.graphics.ui.UIHandler;
-import dev.broystudios.towngame.input.MouseHandler;
-import dev.broystudios.towngame.resources.Resource;
+import dev.building.Hut;
+import dev.events.Event;
+import dev.graphics.Display;
+import dev.graphics.ui.UIHandler;
+import dev.input.MouseHandler;
+import dev.resources.Resource;
 
 public class Game implements Runnable {
 

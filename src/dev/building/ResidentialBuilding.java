@@ -1,6 +1,6 @@
-package dev.broystudios.towngame.building;
+package dev.building;
 
-import dev.broystudios.towngame.resources.Resource;
+import dev.resources.Resource;
 
 public abstract class ResidentialBuilding extends Building {
 

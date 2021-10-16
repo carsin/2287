@@ -1,9 +1,9 @@
-package dev.broystudios.towngame;
+package dev;
 
-import dev.broystudios.towngame.graphics.Display;
-import dev.broystudios.towngame.graphics.ui.Screen;
-import dev.broystudios.towngame.graphics.ui.UIHandler;
-import dev.broystudios.towngame.input.MouseHandler;
+import dev.graphics.Display;
+import dev.graphics.ui.Screen;
+import dev.graphics.ui.UIHandler;
+import dev.input.MouseHandler;
 
 public class InstanceHandler {
 

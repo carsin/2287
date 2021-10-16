@@ -1,4 +1,4 @@
-package dev.broystudios.towngame;
+package dev;
 
 public class Time {
 	

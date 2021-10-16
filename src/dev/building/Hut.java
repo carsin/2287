@@ -1,8 +1,8 @@
-package dev.broystudios.towngame.building;
+package dev.building;
 
-import dev.broystudios.towngame.InstanceHandler;
-import dev.broystudios.towngame.GameStats;
-import dev.broystudios.towngame.resources.Resource;
+import dev.InstanceHandler;
+import dev.GameStats;
+import dev.resources.Resource;
 
 public class Hut extends ResidentialBuilding {
 

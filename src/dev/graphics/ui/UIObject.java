@@ -1,4 +1,4 @@
-package dev.broystudios.towngame.graphics.ui;
+package dev.graphics.ui;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;

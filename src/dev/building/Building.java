@@ -1,7 +1,7 @@
-package dev.broystudios.towngame.building;
+package dev.building;
 
-import dev.broystudios.towngame.GameStats;
-import dev.broystudios.towngame.resources.Resource;
+import dev.GameStats;
+import dev.resources.Resource;
 
 public abstract class Building {
 

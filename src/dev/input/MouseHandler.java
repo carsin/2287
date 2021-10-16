@@ -1,10 +1,10 @@
-package dev.broystudios.towngame.input;
+package dev.input;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import dev.broystudios.towngame.InstanceHandler;
+import dev.InstanceHandler;
 
 public class MouseHandler implements MouseListener, MouseMotionListener {
 

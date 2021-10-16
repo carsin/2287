@@ -1,4 +1,4 @@
-package dev.broystudios.towngame.resources;
+package dev.resources;
 
 public enum Resource {
 

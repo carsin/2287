@@ -1,4 +1,4 @@
-package dev.broystudios.towngame.events;
+package dev.events;
 
 public abstract class Event {
 

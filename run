@@ -1,0 +1,1 @@
+javac -cp bin/:src/:/src/dev src/dev/*.java -d bin && java -cp bin/:src/:src/dev src/dev/Launcher.java

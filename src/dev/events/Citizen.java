@@ -1,8 +1,8 @@
-package dev.broystudios.towngame.events;
+package dev.events;
 
 import java.util.Random;
 
-import dev.broystudios.towngame.GameStats;
+import dev.GameStats;
 
 public class Citizen extends Event {
 

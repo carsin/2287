@@ -1,6 +1,6 @@
-package dev.broystudios.towngame.events;
+package dev.events;
 
-import dev.broystudios.towngame.InstanceHandler;
+import dev.InstanceHandler;
 
 public class Trader extends Event {
 

@@ -1,4 +1,4 @@
-package dev.broystudios.towngame.graphics;
+package dev.graphics;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -8,10 +8,10 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-import dev.broystudios.towngame.InstanceHandler;
-import dev.broystudios.towngame.graphics.ui.ClickListener;
-import dev.broystudios.towngame.graphics.ui.Screen;
-import dev.broystudios.towngame.graphics.ui.UIButton;
+import dev.InstanceHandler;
+import dev.graphics.ui.ClickListener;
+import dev.graphics.ui.Screen;
+import dev.graphics.ui.UIButton;
 
 public class Display {
 
@@ -20,15 +20,15 @@ public class Display {
 	private int width, height;
 	private String title;
 	private Screen screen;
-	
+
 	public Display(int width, int height, String title) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
-		
+
 		screen = new Screen();
 		generateFrame();
-		
+
 		//Carson, follow this format for a button
 		InstanceHandler.getUIHandler().add(new UIButton(width - 120, height - 40, 100, 20, Color.RED, "TEST", new ClickListener() {
 			@Override
@@ -36,21 +36,21 @@ public class Display {
 				screen.println("click dat button ooh yeah");
 			}
 		}));
-		
+
 	}
-	
+
 	public void generateFrame() {
-		
+
 		f = new JFrame();
 		c = new Canvas();
-		
+
 		c.setMaximumSize(new Dimension(width, height));
 		c.setMinimumSize(new Dimension(width, height));
 		c.setPreferredSize(new Dimension(width, height));
 		c.addMouseListener(InstanceHandler.getMouseHandler());
 		c.addMouseMotionListener(InstanceHandler.getMouseHandler());
 		c.setFocusable(false);
-		
+
 		f.setTitle(title);
 		f.setSize(width, height);
 		f.add(c);
@@ -62,34 +62,34 @@ public class Display {
 		f.requestFocus();
 		f.pack();
 		f.setVisible(true);
-		
+
 	}
-	
+
 	public void render() {
-		
+
 		BufferStrategy b = c.getBufferStrategy();
 		if(b == null) {
 			c.createBufferStrategy(3);
 			return;
 		}
-		
+
 		Graphics g = b.getDrawGraphics();
-		
+
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
 		screen.render(g);
 		InstanceHandler.getUIHandler().tick();
 		InstanceHandler.getUIHandler().render(g);
-		
+
 		b.show();
 		g.dispose();
-		
+
 	}
-	
+
 	public Screen getScreen() {
 		return screen;
 	}
-	
+
 	public int getWidth() {
 		return width;
 	}
@@ -97,5 +97,5 @@ public class Display {
 	public int getHeight() {
 		return height;
 	}
-	
+
 }
