@@ -1,5 +1,3 @@
-package dev.broystudios.towngame;
-
 import java.util.Random;
 
 import dev.broystudios.towngame.building.Hut;
@@ -72,7 +70,7 @@ public class Game implements Runnable {
 				ticks++;
 				deltaTick--;
 			}
-			
+
 			if(deltaFrame >= 1) {
 				display.render();
 				deltaFrame--;
@@ -96,8 +94,8 @@ public class Game implements Runnable {
 		time = new Time();
 		rand = new Random();
 		hut = new Hut();
-		
-		
+
+
 		Event.citizen.unlockEvent();
 		Resource.editResource(Resource.WOOD, 10, true);
 		hut.buildBuilding();
@@ -123,15 +121,15 @@ public class Game implements Runnable {
 	public Time getTime() {
 		return time;
 	}
-	
+
 	public Display getDisplay() {
 		return display;
 	}
-	
+
 	public MouseHandler getMouseHandler() {
 		return mouseHandler;
 	}
-	
+
 	public UIHandler getUIHandler() {
 		return uiHandler;
 	}
